@@ -1,3 +1,61 @@
+
+<hr>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Not yet started
+     <button type="button" class="btn btn-primary">Add a new task</button>
+  </div>
+   <form action="/insert_task" method="post">
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <textarea id="body_box" name="query_body" rows="3"></textarea>
+      </div>
+
+      <button>
+        Create task
+      </button>
+    </form>
+ <% @list_of_tasks.each do |a_task| %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= a_task.body %></li>
+  </ul>
+  <% end %>
+</div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    In progress
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+</div>
+    </div>
+    <div class="col">
+    <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Completed
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+
 <div>
   <div>
     <h1>
