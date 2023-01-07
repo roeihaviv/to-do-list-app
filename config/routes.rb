@@ -1,6 +1,29 @@
 Rails.application.routes.draw do
 
+  # Routes for the Watch resource:
+
+  # CREATE
+  post("/insert_watch", { :controller => "watches", :action => "create" })
+          
+  # READ
+  get("/watch", { :controller => "watches", :action => "index" })
+  
+  get("/watch/:path_id", { :controller => "watches", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_watch/:path_id", { :controller => "watches", :action => "update" })
+  
+  # DELETE
+  get("/delete_watch/:path_id", { :controller => "watches", :action => "destroy" })
+
+  #------------------------------
+
   get("/", { :controller => "tasks", :action => "index" })
+
+  resources :watch
+
+  resources :restaurants
 
   # Routes for the Task resource:
 

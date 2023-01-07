@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all watches
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new watch
+    </h2>
+
+    <form action="/insert_watch" method="post">
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create watch
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Body
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_watches.each do |a_watch| %>
+      <tr>
+        <td>
+          <%= a_watch.id %>
+        </td>
+
+        <td>
+          <%= a_watch.body %>
+        </td>
+
+        <td>
+          <%= a_watch.status %>
+        </td>
+
+        <td>
+          <%= a_watch.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_watch.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_watch.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/watches/<%= a_watch.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
