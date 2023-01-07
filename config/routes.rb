@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :movies
+  resources :books
   # Routes for the Watch resource:
 
   # CREATE
