@@ -1,31 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :movies
-  resources :books
-  # Routes for the Watch resource:
-
-  # CREATE
-  post("/insert_watch", { :controller => "watches", :action => "create" })
-          
-  # READ
-  get("/watch", { :controller => "watches", :action => "index" })
+  get("/", { :controller => "tasks", :action => "index" })
   
-  get("/watch/:path_id", { :controller => "watches", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_watch/:path_id", { :controller => "watches", :action => "update" })
-  
-  # DELETE
-  get("/delete_watch/:path_id", { :controller => "watches", :action => "destroy" })
-
   #------------------------------
 
-  get("/", { :controller => "tasks", :action => "index" })
-
-  resources :watch
-
+  resources :movies
+  resources :books
   resources :restaurants
+
+  #------------------------------
 
   # Routes for the Task resource:
 
@@ -40,7 +23,8 @@ Rails.application.routes.draw do
   # UPDATE
   
   post("/modify_task/:path_id", { :controller => "tasks", :action => "update" })
-  
+  post("/tasks/status", { :controller => "tasks", :action => "update_status" })
+
   # DELETE
   get("/delete_task/:path_id", { :controller => "tasks", :action => "destroy" })
 

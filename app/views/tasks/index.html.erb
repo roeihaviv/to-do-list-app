@@ -12,7 +12,7 @@
             <a href="/tasks/<%= a_task.id %>">
               <li class="list-group-item"><%= a_task.body %>
               </a>
-              <a href="/modify_task/<%= a_task.id %>"><button>Start</button></a>
+              <td><%= button_to 'start', {:controller => "tasks", :action => "update_status", id: a_task.id, status: Task::Status::IN_PROGRESS }, method: :post  %></td>
             </li>
           </ul>
         <% end %>
@@ -41,8 +41,9 @@
         <% @list_of_tasks.where(status: "completed").each do |a_task| %>
           <ul class="list-group list-group-flush">
             <a href="/tasks/<%= a_task.id %>">
-              <li class="list-group-item"><%= a_task.body %>
+              <li class="list-group-item"><%= a_task.body %> 
               </a>
+              <div>Added <%= a_task.time_ago %> ago</div>
               <a href="/delete_task/<%= @the_task %>"><button>Delete</button></a>
             </li>
           </ul>

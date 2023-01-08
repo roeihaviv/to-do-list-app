@@ -46,13 +46,13 @@
       </label>
 
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="status_box" name="query_status" value="<%= @the_task.status %>">
           Status
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#"><%= @the_task.status %></a></li>
-          <li><a class="dropdown-item" href="#"><%= @the_task.status %></a></li>
-          <li><a class="dropdown-item" href="#"><%= @the_task.status %></a></li>
+          <li><a class="dropdown-item">Not yet started</a></li>
+          <li><a class="dropdown-item">In progress</a></li>
+          <li><a class="dropdown-item">Completed</a></li>
         </ul>
       </div>
 
@@ -62,9 +62,6 @@
 
       <button>
         Update task
-      </button>
-      <button>
-        <a href="/">Update task</a>
       </button>
     </form>
   </div>
