@@ -4,6 +4,10 @@
   <strong>Movie:</strong>
   <%= @movie.movie %>
 </p>
+<p>
+  <strong>Status:</strong>
+  <%= @movie.status %>
+</p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

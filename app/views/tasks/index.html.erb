@@ -9,9 +9,8 @@
         </div>
         <% @list_of_tasks.where(status: "not yet started").each do |a_task| %>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= a_task.body %>
-              <a href="/tasks/<%= a_task.id %>">
-                <button>Show details</button>
+            <a href="/tasks/<%= a_task.id %>">
+              <li class="list-group-item"><%= a_task.body %>
               </a>
             </li>
           </ul>
@@ -25,10 +24,10 @@
         </div>
         <% @list_of_tasks.where(status: "in progress").each do |a_task| %>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= a_task.body %>
-              <a href="/tasks/<%= a_task.id %>">
-                <button>Show details</button>
+            <a href="/tasks/<%= a_task.id %>">
+              <li class="list-group-item"><%= a_task.body %>
               </a>
+              <a href="/modify_task/<%= a_task.id %>"><button>Start</button></a>
             </li>
           </ul>
         <% end %>
@@ -41,9 +40,8 @@
         </div>
         <% @list_of_tasks.where(status: "completed").each do |a_task| %>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= a_task.body %>
-              <a href="/tasks/<%= a_task.id %>">
-                <button>Show details</button>
+            <a href="/tasks/<%= a_task.id %>">
+              <li class="list-group-item"><%= a_task.body %>
               </a>
             </li>
           </ul>
