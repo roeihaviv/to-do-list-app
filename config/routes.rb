@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_task/:path_id", { :controller => "tasks", :action => "destroy" })
 
+  get("/delete_task", { :controller => "tasks", :action => "destroy" })
+
   #------------------------------
 
   # Routes for the User account:

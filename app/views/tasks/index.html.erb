@@ -12,6 +12,7 @@
             <a href="/tasks/<%= a_task.id %>">
               <li class="list-group-item"><%= a_task.body %>
               </a>
+              <a href="/modify_task/<%= a_task.id %>"><button>Start</button></a>
             </li>
           </ul>
         <% end %>
@@ -27,7 +28,6 @@
             <a href="/tasks/<%= a_task.id %>">
               <li class="list-group-item"><%= a_task.body %>
               </a>
-              <a href="/modify_task/<%= a_task.id %>"><button>Start</button></a>
             </li>
           </ul>
         <% end %>
@@ -43,6 +43,7 @@
             <a href="/tasks/<%= a_task.id %>">
               <li class="list-group-item"><%= a_task.body %>
               </a>
+              <a href="/delete_task/<%= @the_task %>"><button>Delete</button></a>
             </li>
           </ul>
         <% end %>
@@ -63,16 +64,12 @@
 
 <div>
   <div>
-    <h2>
+    <h5>
       Add a new task
-    </h2>
+    </h5>
 
     <form action="/insert_task" method="post">
       <div>
-        <label for="body_box">
-          Body
-        </label>
-
         <textarea id="body_box" name="query_body" rows="3"></textarea>
       </div>
 

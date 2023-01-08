@@ -41,6 +41,21 @@
         <input type="text" id="status_box" name="query_status" value="<%= @the_task.status %>">
       </div>
 
+      <label for="status_box">
+        Status
+      </label>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Status
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><%= @the_task.status %></a></li>
+          <li><a class="dropdown-item" href="#"><%= @the_task.status %></a></li>
+          <li><a class="dropdown-item" href="#"><%= @the_task.status %></a></li>
+        </ul>
+      </div>
+
       <div>
         <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_task.user_id %>">
       </div>
