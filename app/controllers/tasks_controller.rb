@@ -88,4 +88,5 @@ class TasksController < ApplicationController
 
     redirect_to("/tasks", { :notice => "Task deleted successfully."} )
   end
+  
 end

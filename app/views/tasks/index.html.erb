@@ -1,10 +1,10 @@
 <hr>
 
-<div class="container text-center">
+<div class="container">
   <div class="row">
     <div class="col">
       <div class="card" style="width: 25rem;">
-        <div class="card-header">
+        <div class="card-header text-center">
           Not yet started
         </div>
         <% @list_of_tasks.where(status: "not yet started").each do |a_task| %>
@@ -12,7 +12,8 @@
             <a href="/tasks/<%= a_task.id %>">
               <li class="list-group-item"><%= a_task.body %>
               </a>
-              <td><%= button_to 'start', {:controller => "tasks", :action => "update_status", id: a_task.id, status: Task::Status::IN_PROGRESS }, method: :post  %></td>
+              <div>Added <%= a_task.time_ago %> days ago</div>
+              <td class="float-right"><%= button_to 'Start', {:controller => "tasks", :action => "update_status", id: a_task.id, status: Task::Status::IN_PROGRESS }, method: :post %></td>
             </li>
           </ul>
         <% end %>
@@ -20,7 +21,7 @@
     </div>
     <div class="col">
       <div class="card" style="width: 25rem;">
-        <div class="card-header">
+        <div class="card-header text-center">
           In progress
         </div>
         <% @list_of_tasks.where(status: "in progress").each do |a_task| %>
@@ -28,6 +29,8 @@
             <a href="/tasks/<%= a_task.id %>">
               <li class="list-group-item"><%= a_task.body %>
               </a>
+              <div>Added <%= a_task.time_ago %> days ago</div>
+              <td><%= button_to 'Done', controller: "tasks", action: "update_status", id: a_task.id, status: Task::Status::COMPLETED, method: :post, style: "float: right;" %></td>
             </li>
           </ul>
         <% end %>
@@ -35,16 +38,16 @@
     </div>
     <div class="col">
       <div class="card" style="width: 25rem;">
-        <div class="card-header">
+        <div class="card-header text-center">
           Completed
         </div>
         <% @list_of_tasks.where(status: "completed").each do |a_task| %>
           <ul class="list-group list-group-flush">
             <a href="/tasks/<%= a_task.id %>">
-              <li class="list-group-item"><%= a_task.body %> 
+              <li class="list-group-item"><%= a_task.body %>
               </a>
-              <div>Added <%= a_task.time_ago %> ago</div>
-              <a href="/delete_task/<%= @the_task %>"><button>Delete</button></a>
+              <div>Added <%= a_task.time_ago %> days ago</div>
+              <td><%= button_to 'Remove', {:controller => "tasks", :action => "destroy", id: a_task.id, status: Task::Status::COMPLETED } %></td>
             </li>
           </ul>
         <% end %>

@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   post("/tasks/status", { :controller => "tasks", :action => "update_status" })
 
   # DELETE
-  get("/delete_task/:path_id", { :controller => "tasks", :action => "destroy" })
+  post("/delete_task/:path_id", { :controller => "tasks", :action => "destroy" })
 
-  get("/delete_task", { :controller => "tasks", :action => "destroy" })
+  post("/delete_task", { :controller => "tasks", :action => "destroy" })
 
   #------------------------------
 

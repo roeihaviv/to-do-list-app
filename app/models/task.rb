@@ -34,6 +34,6 @@ class Task < ApplicationRecord
   end
 
   def time_ago
-    ((Time.now - self.created_at) / 1.minutes).to_i
+    ((Time.now - self.created_at) / 1.days).to_i
   end
 end
