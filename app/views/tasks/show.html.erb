@@ -14,7 +14,7 @@
 
 <div>
   <h1>
-    Task #<%= @the_task.id %> details
+    <%= @the_task.body %>
   </h1>
 </div>
 
@@ -68,3 +68,65 @@
 </div>
 
 <hr>
+
+<div class="col-md-4 offset-md-4 text-center">
+  <div class="card">
+    <div class="card-header">
+      <h2><%= @the_task.body %></h2>
+    </div>
+
+    <div class="card-body">
+      <dl>
+        <dt>
+          Task
+        </dt>
+        <dd>
+          <textarea id="body_box" name="query_body"><%= @the_task.body %></textarea>
+        </dd>
+
+        <dd>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="status_box" name="query_status" value="<%= @the_task.status %>">
+              Status
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Not yet started</a></li>
+              <li><a class="dropdown-item">In progress</a></li>
+              <li><a class="dropdown-item">Completed</a></li>
+            </ul>
+          </div>
+        </dd>
+      </dl>
+
+      
+      <div>
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_task.user_id %>">
+      </div>
+
+      <button>
+        Update task
+      </button>
+
+      <div class="row">
+        <div class="col">
+          <div class="d-grid">
+            <%# <%= link_to /tasks, class: "btn btn-outline-primary" do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+              <%# <% end %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-grid">
+              <%# <%= link_to @the_task, method: :delete, class: "btn btn-outline-danger" do %>
+                <%# <i class="fa-regular fa-trash-can"></i> %>
+                <%# <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          Last updated <%= time_ago_in_words(@the_task.updated_at) %> ago
+        </div>
+      </div>
+    </div>

@@ -81,7 +81,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
+    the_id = params.fetch("id")
     the_task = Task.where({ :id => the_id }).at(0)
 
     the_task.destroy
